@@ -18,9 +18,6 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install instaloader
-
       - name: Fetch Instagram posts
         env:
           IG_USERNAME: nakano.gaoo_event
