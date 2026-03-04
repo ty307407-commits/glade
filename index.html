@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>ネオスナック がおー | 中野 Neo Snack GAOO</title>
+  <meta name="description" content="東京・中野のネオスナック「がおー」。広い空間で、気がついたらショーが始まってた。19時オープン。プランA¥1,500〜。" />
+  <link rel="icon" href="images/favicon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --txt: #111111;
+      --accent: #111111;
+      /* A vivid pink/red for minimal accents */
+      --line: #111111;
+      --grid-color: #E2E2E2;
+      --border-radius: 0;
+      font-family: 'Outfit', 'Noto Sans JP', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background: var(--bg);
+      background-image:
+        linear-gradient(to right, #EFEFEF 1px, transparent 1px),
+        linear-gradient(to bottom, #EFEFEF 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--txt);
+      overflow-x: hidden;
+    }
+
+
+
+    #lang-toggle {
+      position: fixed;
+      top: 70px;
+      right: 16px;
+      z-index: 200;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 0;
+      padding: 6px 16px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      color: var(--txt);
+      font-weight: 700;
+      transition: transform .2s;
+    }
+
+    #lang-toggle:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .en {
+      display: none;
+    }
+
+    body.lang-en .ja {
+      display: none;
+    }
+
+    body.lang-en .en {
+      display: inline;
+    }
+
+    body.lang-en .en-block {
+      display: block !important;
+    }
+
+    body.lang-en .ja-block {
+      display: none !important;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 60px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    nav a {
+      color: var(--txt);
+      text-decoration: none;
+      transition: color .2s;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    nav a::after {
+      display: none;
+    }
+
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 80px 20px;
+      background: transparent;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 20px;
+      background: url('images/IMG_0343.JPG') center/cover no-repeat;
+
+      opacity: 0.25;
+      border: 1px solid var(--line);
+    }
+
+    .hero-deco {
+      display: none;
+    }
+
+    .hero-grid {
+      display: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--txt);
+      font-size: 10px;
+      padding: 4px 16px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      position: relative;
+      z-index: 2;
+      font-weight: 900;
+      font-size: clamp(72px, 16vw, 160px);
+      letter-spacing: 4px;
+      line-height: .9;
+      color: var(--txt);
+      margin-bottom: 12px;
+      font-family: Outfit, sans-serif;
+    }
+
+    .hero-sub {
+      position: relative;
+      z-index: 2;
+      font-size: 12px;
+      letter-spacing: 4px;
+      color: var(--txt);
+      font-weight: 700;
+      margin-bottom: 8px;
+      padding: 6px 0;
+      border: none;
+    }
+
+    .hero-catch {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(12px, 3.2vw, 17px);
+      line-height: 2;
+      color: var(--txt);
+      margin-bottom: 40px;
+      padding: 12px 10px;
+      border: none;
+      font-weight: 700;
+      word-break: keep-all;
+      width: 100%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-catch em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero-cta {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 14px 32px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid var(--line);
+      font-weight: 900;
+      transition: all .2s;
+      background: #fff;
+      color: var(--txt);
+    }
+
+    .btn-primary {
+      background: var(--line);
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: var(--txt);
+      background: transparent;
+    }
+
+    .scroll-line {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--line);
+    }
+
+    section {
+      padding: 100px 20px;
+    }
+
+    .section-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .sec-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .sec-badge {
+      display: inline-block;
+      background: transparent;
+      color: var(--txt);
+      border: 1px solid var(--line);
+      font-size: 10px;
+      padding: 5px 16px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .sec-title {
+      font-weight: 900;
+      font-size: clamp(32px, 6vw, 56px);
+      color: var(--txt);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+    }
+
+    .sec-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .sec-title::before {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 40px;
+      width: 5px;
+      height: 5px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      border-radius: 50%;
+    }
+
+    .sec-sub {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    #concept {
+      background: transparent;
+    }
+
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .concept-text p {
+      font-size: 15px;
+      line-height: 2.2;
+      color: var(--txt);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .concept-text .hi {
+      background: linear-gradient(transparent 60%, rgba(17, 17, 17, 0.15) 60%);
+      font-weight: 900;
+    }
+
+    .concept-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .badge {
+      padding: 8px 18px;
+      background: transparent;
+      border: 1px solid var(--line);
+      font-size: 11px;
+      color: var(--txt);
+      font-weight: 900;
+    }
+
+    .concept-img-large {
+      margin-top: 40px;
+      width: 100%;
+      height: 400px;
+      background: transparent;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .concept-img-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+
+    #system {
+      background: transparent;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .system-circles {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .sys-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      flex: 0 0 200px;
+    }
+
+    .sys-circle {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 4/3;
+      border-radius: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: transparent;
+      transition: transform .3s;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+    }
+
+    .sys-circle:hover {
+      transform: translate(-2px, -2px);
+    }
+
+    .sys-circle-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .sys-circle-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+    }
+
+    .sys-name {
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--txt);
+      text-align: center;
+    }
+
+    .sys-price {
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .sys-desc {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.8;
+      max-width: 160px;
+      font-weight: 700;
+    }
+
+    #schedule {
+      background: transparent;
+    }
+
+    .timeline {
+      max-width: 580px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 40px;
+    }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      padding: 24px 0;
+      border-bottom: 2px dashed var(--muted);
+    }
+
+    .tl-item:last-child {
+      border-bottom: none;
+    }
+
+    .tl-time {
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--txt);
+      line-height: 1;
+    }
+
+    .tl-body h3 {
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 4px;
+      color: var(--txt);
+    }
+
+    .tl-body p {
+      font-size: 12px;
+      color: var(--txt2);
+      line-height: 1.7;
+      font-weight: 700;
+    }
+
+    .tl-show .tl-body h3 {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .tl-note {
+      max-width: 580px;
+      margin: 28px auto 0;
+      padding: 16px 20px;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--txt);
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    #price {
+      background: transparent;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .price-card {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 32px 28px;
+      transition: transform .3s;
+      position: relative;
+    }
+
+    .price-card:hover {
+      transform: translate(-4px, -4px);
+      border: 1px solid var(--line);
+    }
+
+    .price-card.hot {
+      border-color: var(--accent);
+    }
+
+    .price-card.hot::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 9px;
+      background: var(--line);
+      color: #fff;
+      padding: 3px 10px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+    }
+
+    .p-label {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .p-main {
+      font-weight: 900;
+      font-size: 48px;
+      color: var(--txt);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .p-unit {
+      font-size: 12px;
+      color: var(--txt);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .p-feat {
+      font-size: 13px;
+      color: var(--txt2);
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .price-note {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 20px 24px;
+      font-size: 12px;
+      color: var(--txt);
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    #dancers {
+      background: transparent;
+    }
+
+    .dancer-grid {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      flex-wrap: nowrap;
+      gap: 0;
+      padding: 24px 20px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 0 -20px;
+    }
+
+    .dancer-grid::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .dancer-grid::-webkit-scrollbar-track {
+      background: transparent;
+      border: 1px solid var(--line);
+    }
+
+    .dancer-grid::-webkit-scrollbar-thumb {
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .dancer-nav {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .dancer-nav-btn {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border: 2px solid var(--line);
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s;
+    }
+
+    .dancer-nav-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      background: var(--txt);
+      color: #fff;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 900;
+      border: 1px solid var(--line);
+      animation: hintBounce 2s infinite;
+      z-index: 10;
+    }
+
+    .dancer-card {
+      flex: 0 0 240px;
+      scroll-snap-align: start;
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid var(--line);
+      transition: transform .2s;
+      position: relative;
+    }
+
+    .dancer-card:hover {
+      transform: translate(-4px, -4px);
+      border: 1px solid var(--line);
+    }
+
+    .dancer-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dancer-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition: filter .3s;
+    }
+
+    .dancer-card:hover .dancer-photo img {}
+
+    .dancer-hint {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 17, 17, 0.9);
+      color: #fff;
+      font-size: 10px;
+      text-align: center;
+      padding: 12px 8px;
+      font-weight: 900;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .dancer-card:hover .dancer-hint {
+      opacity: 1;
+    }
+
+    .dancer-name {
+      padding: 12px 16px;
+      font-weight: 900;
+      font-size: 15px;
+      color: var(--txt);
+    }
+
+    .dancer-role {
+      padding: 0 16px 12px;
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    #dancer-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100vh;
+      height: 100dvh;
+      z-index: 500;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 20px;
+    }
+
+    #dancer-modal.open {
+      display: block;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(248, 246, 240, 0.9);
+    }
+
+    .modal-body {
+      padding: 24px;
+      background: #fff;
+    }
+
+    .modal-box {
+      margin: 80px auto;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      border: 4px solid var(--line);
+      max-width: 480px;
+      width: 100%;
+      animation: modalPop .3s ease-out both;
+    }
+
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: translateY(20px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    .modal-photo {
+      aspect-ratio: 3/4;
+      border-bottom: 4px solid var(--line);
+      overflow: hidden;
+    }
+
+    .modal-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal- body {
+      background: var(--bg);
+      background-image:
+        linear-gradient(to right, #EFEFEF 1px, transparent 1px),
+        linear-gradient(to bottom, #EFEFEF 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--txt);
+      overflow-x: hidden;
+    }
+
+
+    .modal-name {
+      font-weight: 900;
+      font-size: 24px;
+      color: var(--txt);
+      margin-bottom: 4px;
+    }
+
+    .modal-role {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .modal-pr {
+      background: var(--bg3);
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--txt);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      border: 1px solid var(--line);
+      white-space: pre-wrap;
+      font-weight: 700;
+    }
+
+    .modal-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .m-info-block {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+    }
+
+    .m-info-label {
+      font-size: 9px;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 900;
+    }
+
+    .m-info-val {
+      font-size: 13px;
+      color: var(--txt);
+      font-weight: 900;
+    }
+
+    .modal-close {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 600;
+      transition: transform .2s;
+      box-shadow: 2px 2px 0 var(--line);
+    }
+
+    .modal-close:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+
+    #events {
+      background: transparent;
+      border-top: 1px solid var(--line);
+    }
+
+    .ig-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--txt);
+      margin-bottom: 32px;
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .ig-embed-wrap {
+      background: #fff;
+      border: 1px solid var(--line);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      padding: 40px;
+    }
+
+    .ig-placeholder-icon {
+      font-size: 56px;
+    }
+
+    .ig-placeholder-text {
+      font-size: 15px;
+      color: var(--txt);
+      text-align: center;
+      line-height: 1.9;
+      font-weight: 700;
+    }
+
+    .ig-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      background: transparent;
+      color: var(--txt);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      font-weight: 900;
+      font-size: 13px;
+      transition: transform .2s;
+      margin-top: 8px;
+    }
+
+    .ig-follow-btn:hover {
+      transform: translate(-2px, -2px);
+      border: 1px solid var(--line);
+    }
+
+    #access {
+      background: transparent;
+      border-top: 1px solid var(--line);
+    }
+
+    .access-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .info-block {
+      margin-bottom: 28px;
+    }
+
+    .info-label {
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 900;
+    }
+
+    .info-val {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--txt);
+      font-weight: 700;
+    }
+
+    .info-val a {
+      color: var(--txt);
+      text-decoration: none;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .info-val a:hover {
+      color: var(--accent);
+    }
+
+    .map-wrap {
+      border: 1px solid var(--line);
+      aspect-ratio: 4/3;
+      background: transparent;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      background: #fff;
+      padding: 60px 20px 32px;
+      text-align: center;
+      border-top: 1px solid var(--line);
+    }
+
+    .foot-title {
+      font-weight: 900;
+      font-size: 40px;
+      color: var(--txt);
+      margin-bottom: 6px;
+      letter-spacing: 2px;
+    }
+
+    .foot-sub {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-weight: 700;
+    }
+
+    .foot-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .foot-links a {
+      font-size: 11px;
+      color: var(--txt);
+      text-decoration: none;
+      letter-spacing: 2px;
+      font-weight: 900;
+      transition: color .2s;
+    }
+
+    .foot-links a:hover {
+      color: var(--accent);
+    }
+
+    .foot-recruit {
+      display: inline-block;
+      margin-bottom: 28px;
+      padding: 12px 32px;
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--txt);
+      text-decoration: none;
+      font-weight: 900;
+      transition: all .2s;
+      background: var(--txt);
+      color: #fff;
+    }
+
+    .foot-recruit:hover {
+      transform: translate(-2px, -2px);
+      border: 1px solid var(--line);
+    }
+
+    .foot-copy {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    .foot-addr {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 8px;
+      letter-spacing: .5px;
+      font-weight: 500;
+    }
+
+    @media(max-width:700px) {
+      .m-body {
+        padding: 20px !important;
+        margin-top: 30px;
+      }
+
+      .sec-title .ja {
+        font-size: 26px !important;
+        letter-spacing: 1px !important;
+        white-space: nowrap;
+      }
+
+      nav ul {
+        gap: 12px 16px;
+        font-size: 11px;
+        flex-wrap: wrap;
+        justify-content: center;
+        white-space: normal;
+        overflow: visible;
+        padding: 0 10px;
+      }
+
+      nav ul li {
+        white-space: nowrap;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .concept-img {
+        display: none;
+      }
+
+      .price-row {
+        grid-template-columns: 1fr;
+      }
+
+      .access-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dancer-grid {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        flex-wrap: nowrap;
+        gap: 0;
+        padding: 24px 20px;
+        scroll-snap-type: x mandatory;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        margin: 0 -20px;
+      }
+
+      .dancer-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .dancer-card {
+        flex: 0 0 130px;
+      }
+
+      .dancer-card .dancer-name {
+        font-size: 13px;
+        padding: 8px 10px;
+      }
+
+      .dancer-card .dancer-role {
+        font-size: 10px;
+        padding: 0 10px 8px;
+      }
+
+      .system-circles {
+        gap: 24px;
+      }
+
+      .sys-item {
+        width: 100%;
+        padding-bottom: 32px;
+        border-bottom: 1px dashed var(--line);
+        margin-bottom: 16px;
+      }
+
+      .sys-item:last-child {
+        border-bottom: none;
+      }
+
+      .sys-circle {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 4/3 !important;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%) !important;
+      }
+    }
+
+    .sys-circle:hover img {}
+
+    .ig-post:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--line);
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="lang-toggle" onclick="toggleLang()">EN / JP</button>
+
+  <nav>
+    <ul>
+      <li><a href="#concept"><span class="ja">コンセプト</span><span class="en">CONCEPT</span></a></li>
+      <li><a href="#system"><span class="ja">料金プラン</span><span class="en">PRICE</span></a></li>
+      <li><a href="#schedule"><span class="ja">タイムライン</span><span class="en">SCHEDULE</span></a></li>
+      <li><a href="#dancers"><span class="ja">ダンサー</span><span class="en">DANCERS</span></a></li>
+      <li><a href="#events"><span class="ja">イベント</span><span class="en">EVENTS</span></a></li>
+      <li><a href="#access"><span class="ja">アクセス</span><span class="en">ACCESS</span></a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div
+      style="position:absolute;top:0;left:0;width:150px;height:150px;background:var(--txt);clip-path:polygon(0 0, 100% 0, 0 100%);z-index:3;">
+    </div>
+    <div class="hero-bg"></div>
+    <div class="hero-deco"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+    <div class="hero-grid"></div>
+    <div class="hero-tag">NAKANO × TOKYO × NEO SNACK</div>
+    <h1 class="hero-title">GAOO</h1>
+    <p class="hero-sub"><span class="ja">ネオスナック がおー ── 中野</span><span class="en">NEO SNACK GAOO ── NAKANO</span></p>
+    <p class="hero-catch">
+      <span class="ja-block">中野でいちばん広い、大人のネオスナック。<br>お酒を傾けていたら、<em>ショーが始まってた。</em></span>
+      <span class="en-block" style="display:none">Nakano's most spacious neo snack bar.<br>You're sipping your drink —
+        then <em>the show begins.</em></span>
+    </p>
+    <div class="hero-cta">
+      <a href="#system" class="btn btn-primary"><span class="ja">料金プランを見る</span><span class="en">VIEW PLANS</span></a>
+      <a href="#access" class="btn btn-outline"><span class="ja">アクセス</span><span class="en">ACCESS</span></a>
+    </div>
+    <div class="scroll-down">
+      <div class="scroll-line"></div><span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- CONCEPT -->
+  <section id="concept">
+    <div class="section-inner">
+
+      <div class="concept-grid fade-in">
+        <div class="concept-text">
+          <span class="sec-badge">CONCEPT</span>
+          <p class="ja-block">東京・中野のネオスナック「がおー」。<br>昭和新道商店街のすぐそば。<br><span class="hi"><span
+                style="display:inline-block;">カウンター6席、ボックス5卓、</span><span
+                style="display:inline-block;">最大30名。</span></span><br>スナックの中では珍しいほど広い空間に、<br>気の置けない仲間と集まってください。</p>
+          <p class="en-block" style="display:none">Neo Snack GAOO in Nakano, Tokyo. Right beside the Showa Shindo
+            shopping street. <span class="hi">6 counter seats, 5 box tables, capacity for 30.</span> One of the most
+            spacious snack bars around.</p>
+          <p class="ja-block">飲んで、話して、踊って、笑う。<br>そんな夜を重ねながら、<span class="hi"><span
+                style="display:inline-block;">気づいたら</span><span
+                style="display:inline-block;">ショーが始まっている</span></span>――<br>さらに、<span
+              class="hi">ダンサーと一緒に乾杯して朝まで盛り上がれる</span>のも、「がおー」ならではのスタイルです。</p>
+          <p class="en-block" style="display:none">Drink, talk, sing, laugh. Before you know it, a live show starts.
+            Plus, you can <span class="hi">drink and party with the dancers</span> all night long. That\'s the GAOO
+            style.</p>
+          <div class="concept-badges">
+            <span class="badge"><span class="ja">中野エリア最大規模</span><span class="en">LARGEST IN NAKANO</span></span>
+            <span class="badge"><span class="ja">最大30名</span><span class="en">UP TO 30 GUESTS</span></span>
+            <span class="badge"><span class="ja">ショー＆乾杯</span><span class="en">SHOWS & CHEERS</span></span>
+            <span class="badge"><span class="ja">英語対応可</span><span class="en">ENGLISH OK</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="concept-img-large fade-in"
+        style="margin-top:40px;width:100%;height:400px;background:transparent;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+        <img src="images/IMG_0348.JPG" alt="店内風景" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- PRICE (formerly SYSTEM) -->
+  <section id="system">
+    <div class="section-inner">
+      <div class="sec-head fade-in">
+        <span class="sec-badge">PRICE</span>
+        <h2 class="sec-title"><span class="ja">料金プラン</span><span class="en">Pricing Plans</span></h2>
+      </div>
+      <div class="system-circles fade-in">
+        <div class="sys-item">
+          <div class="sys-circle"
+            style="width:100%;max-width:280px;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:transparent;transition:transform .3s;position:relative;clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); margin-bottom: 24px;">
+            <div class="sys-circle-inner" style="display:block; width:100%; height:100%;"><img src="images/IMG_6965.JPG"
+                style="width:100%;height:100%;object-fit:cover;object-position:center center;">
+            </div>
+          </div>
+          <div class="sys-name" style="margin-top:16px;"><span class="ja">プランA</span><span class="en">Plan A</span>
+          </div>
+          <div class="sys-price">¥1,500〜</div>
+          <div class="sys-desc"><span class="ja">1時間ごと<br>飲み物は別途ご用意</span><span class="en">per hour<br>Drinks
+              separately</span></div>
+        </div>
+        <div class="sys-item">
+          <div class="sys-circle"
+            style="width:100%;max-width:280px;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:transparent;transition:transform .3s;position:relative;clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); margin-bottom: 24px;">
+            <div class="sys-circle-inner" style="display:block; width:100%; height:100%;"><img src="images/IMG_6966.JPG"
+                style="width:100%;height:100%;object-fit:cover;object-position:center center;">
+            </div>
+          </div>
+          <div class="sys-name" style="margin-top:16px;"><span class="ja">プランB</span><span class="en">Plan B</span>
+          </div>
+          <div class="sys-price">¥2,500〜</div>
+          <div class="sys-desc"><span class="ja">1時間ごと<br>飲み放題込み</span><span class="en">per
+              hour<br>All-you-can-drink</span></div>
+        </div>
+        <div class="sys-item">
+          <div class="sys-circle"
+            style="width:100%;max-width:280px;aspect-ratio:3/4;overflow:hidden;border:1px solid var(--line);background:transparent;transition:transform .3s;position:relative;clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%); margin-bottom: 24px;">
+            <div class="sys-circle-inner" style="display:block; width:100%; height:100%;"><img src="images/IMG_6967.JPG"
+                style="width:100%;height:100%;object-fit:cover;object-position:center center;">
+            </div>
+          </div>
+          <div class="sys-name" style="margin-top:16px;"><span class="ja">貸切・宴会</span><span class="en">Private
+              Party</span></div>
+          <div class="sys-price">応相談</div>
+          <div class="sys-desc"><span class="ja">最大30名さま<br>特別なご宴会等はお気軽に</span><span class="en">Up to 30 guests<br>Feel
+              free to consult</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section id="schedule">
+    <div class="section-inner">
+      <div class="sec-head fade-in">
+        <span class="sec-badge">SHOW SCHEDULE</span>
+        <h2 class="sec-title"><span class="ja">ショースケジュール</span><span class="en">Schedule</span></h2>
+      </div>
+      <div class="timeline fade-in">
+        <div class="tl-item">
+          <div class="tl-time">19:00</div>
+          <div class="tl-body">
+            <h3>OPEN</h3>
+            <p><span class="ja">扉を開けてください。席は広め、カウンターもボックスもあります。</span><span class="en">Doors open. Counter or booth —
+                your choice.</span></p>
+          </div>
+        </div>
+        <div class="tl-item tl-show">
+          <div class="tl-time">20:20</div>
+          <div class="tl-body">
+            <h3><span class="ja">ポールダンス / エアリアル</span><span class="en">Pole Dance / Aerial</span></h3>
+            <p><span class="ja">気がついたら、始まってます。</span><span class="en">It just... begins.</span></p>
+          </div>
+        </div>
+        <div class="tl-item tl-show">
+          <div class="tl-time">20:30</div>
+          <div class="tl-body">
+            <h3><span class="ja">1st ショータイム</span><span class="en">1st Show</span></h3>
+            <p><span class="ja">本格的なダンスパフォーマンス。</span><span class="en">Full performance. Neon lights and real
+                artistry.</span></p>
+          </div>
+        </div>
+        <div class="tl-item tl-show">
+          <div class="tl-time">22:30</div>
+          <div class="tl-body">
+            <h3><span class="ja">2nd ショータイム</span><span class="en">2nd Show</span></h3>
+            <p><span class="ja">来店状況によりフルVer.開催。お見逃しなく。</span><span class="en">Full version when the night calls for
+                it.</span></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-time">25:00</div>
+          <div class="tl-body">
+            <h3>CLOSE</h3>
+            <p><span class="ja">また来てください。水曜定休。</span><span class="en">See you next time. Closed Wednesdays.</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="tl-note fade-in">
+        <span class="ja">2ndショーはショートVer.となりますが、来店状況によってフルVer.開催となります。</span>
+        <span class="en">Additional shows may appear throughout the night. 2nd show may be short version; full
+          performance depending on the evening's energy.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- DANCERS -->
+  <section id="dancers">
+    <div class="section-inner">
+      <div class="sec-head fade-in">
+        <span class="sec-badge">CAST</span>
+        <h2 class="sec-title"><span class="ja">ダンサー紹介</span><span class="en">Our Dancers</span></h2>
+        <p class="sec-sub"><span class="ja">写真をクリックしてプロフィールを見る</span><span class="en">Click a photo to see their
+            profile</span></p>
+      </div>
+      <div id="scroll-hint" class="scroll-hint fade-in">SWIPE ➔</div>
+      <div class="dancer-grid fade-in" id="dancer-grid">
+        <!-- populated by JS -->
+      </div>
+      <div class="dancer-nav">
+        <button class="dancer-nav-btn"
+          onclick="document.getElementById('dancer-grid').scrollBy({left:-500,behavior:'smooth'})">◀</button>
+        <button class="dancer-nav-btn"
+          onclick="document.getElementById('dancer-grid').scrollBy({left:500,behavior:'smooth'})">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS / INSTAGRAM -->
+  <section id="events">
+    <div class="section-inner">
+      <div class="sec-head fade-in">
+        <span class="sec-badge">EVENTS</span>
+        <h2 class="sec-title"><span class="ja">イベント情報</span><span class="en">Events</span></h2>
+      </div>
+      <p class="ig-note fade-in">
+        <span class="ja">最新イベント情報はInstagramにてお知らせ中！<br>フォローしてチェックしてください。</span>
+        <span class="en">Latest event info is posted on Instagram!<br>Follow us and stay updated.</span>
+      </p>
+      <div class="ig-embed-wrap" style="background:transparent;border:none;min-height:auto;padding:0;">
+<div class="ig-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;width:100%;"><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_8.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_7.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_6.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_5.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_4.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a><a href="https://www.instagram.com/nakano.gaoo_event/" target="_blank" class="ig-post" style="display:block;aspect-ratio:1;overflow:hidden;border:1px solid var(--line);transition:transform .2s;"><img src="images/ig_posts/2026-02-23_12-06-42_UTC_3.jpg" alt="Instagram Post" style="width:100%;height:100%;object-fit:cover;"></a></div>
+</div>
+      <a href="https://www.instagram.com/neosnackgaoo/" target="_blank" class="foot-recruit">
+      <span class="ja">ダンサー・スタッフ募集中 ▸ Instagram DMへ</span>
+      <span class="en">Now Hiring Dancers &amp; Staff ▸ DM on Instagram</span>
+    </a>
+    <p class="foot-copy">© 2026 ネオスナック がおー. All rights reserved.</p>
+    <p class="foot-addr"><span class="ja">東京都中野区中野５丁目５０－９ １Ｆ ｜ 03-5942-7739 ｜ 水曜定休</span><span class="en">5-50-9 Nakano,
+        Nakano-ku, Tokyo ｜ 03-5942-7739 ｜ Closed Wed</span></p>
+  </footer>
+
+  <!-- DANCER MODAL -->
+  <div id="dancer-modal">
+    <div class="modal-overlay" onclick="closeModal()"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-photo" id="modal-photo"></div>
+      <div class="modal-body">
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-role" id="modal-role"></div>
+        <div class="modal-pr" id="modal-pr"></div>
+        <div class="modal-info">
+          <div class="m-info-block">
+            <div class="m-info-label"><span class="ja">出身地</span><span class="en">ORIGIN</span></div>
+            <div class="m-info-val" id="modal-origin"></div>
+          </div>
+          <div class="m-info-block">
+            <div class="m-info-label"><span class="ja">血液型</span><span class="en">BLOOD TYPE</span></div>
+            <div class="m-info-val" id="modal-blood"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ─── LANG ───
+    function toggleLang() {
+      document.body.classList.toggle('lang-en');
+      document.getElementById('lang-toggle').textContent = document.body.classList.contains('lang-en') ? 'JP / EN' : 'EN / JP';
+    }
+
+    // ─── FADE IN ───
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+    // ─── DANCERS DATA ───
+    const dancers = [
+      { name: 'MARIE', role: 'Dancer', origin: '山形県', blood: 'A型', pr: '圧倒的なパフォーマンスとトーク力。<br>ハスキーボイスで魅せる、笑顔あふれる夜のスポットライトクイーン', photo: 'images/marie.jpg' },
+      { name: 'TOMO', role: 'Dancer', origin: '群馬県', blood: 'A型', pr: '呑んで良し、喋って良し、体力だけは自信ありますw<br>皆様とお会いできる事を楽しみにしてます‼︎', photo: 'images/tomo.jpg' },
+      { name: 'SAWORI', role: 'Dancer', origin: '愛知県', blood: 'A型', pr: '踊るためにうどんを食べて、うどんを食べるために踊ります。', photo: 'images/sawori_new.jpeg' },
+      { name: 'ayaca', role: 'Dancer', origin: '北海道', blood: 'A型', pr: 'クラシックバレエをルーツとしながらも 他ジャンル踊りこなすオールマイティプレイヤー。<br>平成生まれ昭和育ち。カラオケの十八番は山口百恵 プレイバック part2。', photo: 'images/ayaca_new.jpeg' },
+      { name: '天音', role: 'Dancer', origin: '福岡県', blood: 'B型', pr: '踊った後はアフリカに行きたいです。応援よろしくお願いします！', photo: 'images/amane.jpg' },
+      { name: 'ありす', role: 'Dancer', origin: '東京都', blood: 'A型', pr: 'バイオハザードのアリスです。イタリアのハーフだけど日本語しか話せません笑', photo: 'images/alice.jpg' },
+      { name: 'Remi', role: 'Dancer', origin: '愛知県', blood: 'AB型', pr: 'コンサートや歌番組、様々なアーティストのバックダンサーを経験。振付もやります。<br>得意なジャンルはhiphop。猫と恐竜が好きです。', photo: 'images/remi.jpg' },
+      { name: 'MARI', role: 'Dancer', origin: '埼玉県', blood: 'B型', pr: 'よく笑い、よく食べる、野生児です。', photo: 'images/mari.jpg' },
+      { name: 'KEN5', role: 'Dancer', origin: '和歌山県', blood: 'O型', pr: '性別、年齢なんて関係ない自由人。<br>３大欲求に忠実な男。<br>でもフロアダンスもポールダンスもできちゃうよ。', photo: 'images/ken5.jpg' },
+      { name: 'お～てぃ～', role: 'Dancer', origin: '宮城県', blood: 'A型', pr: 'THE筋肉女子。<br>腹筋、背筋、ふくらはぎ あらゆる筋肉フェチにご対応しております。<br>いろんなジャンルのPole danceの演目を持ってますので、いろんな私を楽しんでください', photo: 'images/ot.jpg' },
+      { name: 'TONTON', role: 'Dancer', origin: '北海道', blood: 'A型', pr: '北海道の大地が育んだダイナマイトボディ。フロアダンサー歴27年、ポールダンサー歴10年、珠算参段、簿記1級(笑)<br>Dynamic & Sexyなshowとお酒の進むトークで皆さまに特別なひとときをお届けします♡', photo: 'images/tonton.jpg' },
+      { name: 'cherie', role: 'Dancer', origin: 'ひみつ', blood: 'B型', pr: 'アジア中心に旅行が趣味です。タイ語•英語勉強中です！夜も更けてきたらshow timeは強くsexyに🫶', photo: 'images/cherie.jpg' },
+    ];
+
+    // ─── BUILD DANCER GRID ───
+    const grid = document.getElementById('dancer-grid');
+    dancers.forEach((d, i) => {
+      const card = document.createElement('div');
+      card.className = 'dancer-card';
+      card.innerHTML = `
+    <div class="dancer-photo"><img src="${d.photo}" alt="${d.name}"><div class="dancer-hint">PROFILE ▸</div></div>
+    <div class="dancer-name">${d.name}</div>
+    <div class="dancer-role"><span class="ja">${d.role}</span><span class="en">${d.role}</span></div>`;
+      card.onclick = () => openModal(d);
+      grid.appendChild(card);
+    });
+
+    // ─── MODAL ───
+    const modal = document.getElementById('dancer-modal');
+    function openModal(d) {
+      const isEn = document.body.classList.contains('lang-en');
+      document.getElementById('modal-photo').innerHTML = `<img src="${d.photo}" alt="${d.name}">`;
+      document.getElementById('modal-name').textContent = d.name;
+      document.getElementById('modal-role').innerHTML = `<span class="ja">${d.role}</span><span class="en">${d.role}</span>`;
+      document.getElementById('modal-pr').innerHTML = `<span class="ja">${d.pr}</span><span class="en">${d.pr}</span>`;
+      document.getElementById('modal-origin').textContent = d.origin;
+      document.getElementById('modal-blood').textContent = d.blood;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+  <section id="access">
+    <div class="section-inner">
+      <div class="sec-head fade-in">
+        <span class="sec-badge">ACCESS</span>
+        <h2 class="sec-title"><span class="ja">場所・営業時間</span><span class="en">Location &amp; Hours</span></h2>
+      </div>
+      <div class="access-grid fade-in">
+        <div>
+          <div class="info-block">
+            <span class="info-label"><span class="ja">住所</span><span class="en">ADDRESS</span></span>
+            <p class="info-val">〒164-0001<br><span class="ja">東京都中野区中野５丁目５０－９ １Ｆ</span><span class="en">5-50-9 Nakano,
+                Nakano-ku, Tokyo 164-0001</span><br><small style="font-size:12px;color:var(--muted)"><span
+                  class="ja">JR中野駅北口より徒歩約7分・昭和新道商店街沿</span><span class="en">7 min walk from JR Nakano Station (North
+                  Exit)</span></small></p>
+          </div>
+          <div class="info-block">
+            <span class="info-label"><span class="ja">営業時間</span><span class="en">HOURS</span></span>
+            <p class="info-val">19:00 – 25:00<br><small style="font-size:12px;color:var(--muted)"><span
+                  class="ja">水曜定休</span><span class="en">Closed Wednesdays</span></small></p>
+          </div>
+          <div class="info-block">
+            <span class="info-label"><span class="ja">お電話</span><span class="en">PHONE</span></span>
+            <p class="info-val"><a href="tel:+81359427739">03-5942-7739</a></p>
+          </div>
+          <div class="info-block">
+            <span class="info-label"><span class="ja">SNS / お問い合わせ</span><span class="en">CONTACT</span></span>
+            <p class="info-val"><a href="https://www.instagram.com/neosnackgaoo/" target="_blank">Instagram:
+                @neosnackgaoo</a><br><small style="font-size:12px;color:var(--muted)"><span
+                  class="ja">ご予約・お問い合わせはInstagram DMにて</span><span class="en">Reservations &amp; inquiries via Instagram
+                  DM</span></small></p>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.9575510665335!2d139.6644445!3d35.7088059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f296c026b9f1%3A0x6bba4da349b1c784!2z44CSMTY0LTAwMDEg5p2x5Lqs6YO95Lit6YeO5Yy65Lit6YeONS01MC05!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
