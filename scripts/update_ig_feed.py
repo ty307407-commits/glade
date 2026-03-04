@@ -208,6 +208,15 @@ def upload_to_ftp(filenames, temp_dir):
     ftp.cwd(f"/{FTP_DIR}/images")
     ftp.sendcmd("SITE CHMOD 755 ig_posts")
     ftp.cwd("ig_posts")
+    # Clean up old images
+    files = ftp.nlst()
+    for file in files:
+        if file.endswith('.jpg') or file.endswith('.jpeg'):
+            try:
+                ftp.delete(file)
+                log(f"  Deleted old image: {file}")
+            except Exception as e:
+                log(f"  Failed to delete {file}: {e}")
     
     # Upload images
     for fn in filenames:
