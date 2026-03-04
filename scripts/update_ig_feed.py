@@ -154,7 +154,7 @@ def update_html_on_server(ftp, filenames, ig_username):
     ig_items = ""
     for fn in filenames:
         ig_items += (
-            f'            <a href="https://www.instagram.com/{ig_username}/" '
+            f'            <a href="https://www.instagram.com/neosnackgaoo/" '
             f'target="_blank" class="ig-post" style="display:block;aspect-ratio:1;'
             f'overflow:hidden;border:1px solid var(--line);transition:transform .2s;">\n'
             f'              <img src="images/ig_posts/{fn}" alt="Instagram Post" '
